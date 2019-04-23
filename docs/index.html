@@ -77,6 +77,16 @@ yarn add oaf-navi
 
 <span class="hljs-comment"># npm</span>
 npm install oaf-navi</code></pre>
+				<h2 id="usage">Usage</h2>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { createBrowserNavigation } <span class="hljs-keyword">from</span> <span class="hljs-string">"navi"</span>;
+<span class="hljs-keyword">import</span> { createBrowserHistory } <span class="hljs-keyword">from</span> <span class="hljs-string">"history"</span>;
+<span class="hljs-keyword">import</span> { wrapNavigation } <span class="hljs-keyword">from</span> <span class="hljs-string">"oaf-navi"</span>;
+
+<span class="hljs-keyword">const</span> history = createBrowserHistory();
+<span class="hljs-keyword">const</span> navigation = createBrowserNavigation({ routes, history });
+<span class="hljs-keyword">await</span> wrapNavigation(history, navigation);
+
+...</code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

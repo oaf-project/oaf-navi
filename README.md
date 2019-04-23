@@ -19,3 +19,17 @@ yarn add oaf-navi
 # npm
 npm install oaf-navi
 ```
+
+## Usage
+
+```typescript
+import { createBrowserNavigation } from "navi";
+import { createBrowserHistory } from "history";
+import { wrapNavigation } from "oaf-navi";
+
+const history = createBrowserHistory();
+const navigation = createBrowserNavigation({ routes, history });
+await wrapNavigation(history, navigation);
+
+...
+```
