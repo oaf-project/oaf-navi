@@ -71,6 +71,7 @@
 				<a href="https://david-dm.org/oaf-project/oaf-navi?type=peer"><img src="https://david-dm.org/oaf-project/oaf-navi/peer-status.svg" alt="peerDependencies Status"></a></p>
 				<h1 id="oaf-navi">Oaf Navi</h1>
 				<p>An accessible wrapper for <a href="https://github.com/frontarm/navi">Navi</a>&#39;s router.</p>
+				<p>Documentation at <a href="https://oaf-project.github.io/oaf-navi/">https://oaf-project.github.io/oaf-navi/</a></p>
 				<h2 id="installation">Installation</h2>
 				<pre><code class="language-sh"><span class="hljs-comment"># yarn</span>
 yarn add oaf-navi
@@ -78,7 +79,8 @@ yarn add oaf-navi
 <span class="hljs-comment"># npm</span>
 npm install oaf-navi</code></pre>
 				<h2 id="usage">Usage</h2>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { createBrowserNavigation } <span class="hljs-keyword">from</span> <span class="hljs-string">"navi"</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> routes <span class="hljs-keyword">from</span> <span class="hljs-string">"./routes"</span>;
+<span class="hljs-keyword">import</span> { createBrowserNavigation } <span class="hljs-keyword">from</span> <span class="hljs-string">"navi"</span>;
 <span class="hljs-keyword">import</span> { createBrowserHistory } <span class="hljs-keyword">from</span> <span class="hljs-string">"history"</span>;
 <span class="hljs-keyword">import</span> { wrapNavigation } <span class="hljs-keyword">from</span> <span class="hljs-string">"oaf-navi"</span>;
 
