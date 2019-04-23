@@ -10,6 +10,8 @@
 # Oaf Navi
 An accessible wrapper for [Navi](https://github.com/frontarm/navi)'s router.
 
+Documentation at https://oaf-project.github.io/oaf-navi/
+
 ## Installation
 
 ```sh
@@ -23,6 +25,7 @@ npm install oaf-navi
 ## Usage
 
 ```typescript
+import routes from "./routes";
 import { createBrowserNavigation } from "navi";
 import { createBrowserHistory } from "history";
 import { wrapNavigation } from "oaf-navi";
