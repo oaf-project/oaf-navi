@@ -78,16 +78,39 @@ yarn add oaf-navi
 
 <span class="hljs-comment"># npm</span>
 npm install oaf-navi</code></pre>
-				<h2 id="usage">Usage</h2>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> routes <span class="hljs-keyword">from</span> <span class="hljs-string">"./routes"</span>;
-<span class="hljs-keyword">import</span> { createBrowserNavigation } <span class="hljs-keyword">from</span> <span class="hljs-string">"navi"</span>;
-<span class="hljs-keyword">import</span> { createBrowserHistory } <span class="hljs-keyword">from</span> <span class="hljs-string">"history"</span>;
-<span class="hljs-keyword">import</span> { wrapNavigation } <span class="hljs-keyword">from</span> <span class="hljs-string">"oaf-navi"</span>;
+				<h2 id="basic-usage">Basic Usage</h2>
+				<pre><code class="language-diff">import register from "navi-scripts/register";
+import routes from "./routes";
+import { createBrowserNavigation } from "navi";
+<span class="hljs-addition">+ import { createBrowserHistory } from "history";</span>
+<span class="hljs-addition">+ import { wrapNavigation } from "oaf-navi";</span>
+
+register({
+  ...
+  async main() {
+<span class="hljs-deletion">-    const navigation = createBrowserNavigation({ routes });</span>
+<span class="hljs-addition">+    const history = createBrowserHistory();</span>
+<span class="hljs-addition">+    const navigation = createBrowserNavigation({ routes, history });</span>
+<span class="hljs-addition">+    await wrapNavigation(history, navigation);</span>
+    ...
+  }
+});</code></pre>
+				<h2 id="advanced-usage">Advanced Usage</h2>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> settings = {
+  announcementsDivId: <span class="hljs-string">"announcements"</span>,
+  primaryFocusTarget: <span class="hljs-string">"main h1, [role=main] h1"</span>,
+  documentTitle: <span class="hljs-function">(<span class="hljs-params">route: Route</span>) =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(<span class="hljs-built_in">document</span>.title))),
+  <span class="hljs-comment">// BYO localization</span>
+  navigationMessage: (title: <span class="hljs-built_in">string</span>, route: Route, action: Action): <span class="hljs-function"><span class="hljs-params">string</span> =&gt;</span> <span class="hljs-string">`Navigated to <span class="hljs-subst">${title}</span>.`</span>,
+  shouldHandleAction: <span class="hljs-function">(<span class="hljs-params">previousRoute: Route, nextRoute: Route, action: Action</span>) =&gt;</span> <span class="hljs-literal">true</span>,
+  disableAutoScrollRestoration: <span class="hljs-literal">true</span>,
+  announcePageNavigation: <span class="hljs-literal">true</span>,
+  setPageTitle: <span class="hljs-literal">false</span>,
+};
 
 <span class="hljs-keyword">const</span> history = createBrowserHistory();
 <span class="hljs-keyword">const</span> navigation = createBrowserNavigation({ routes, history });
 <span class="hljs-keyword">await</span> wrapNavigation(history, navigation);
-
 ...</code></pre>
 			</div>
 		</div>

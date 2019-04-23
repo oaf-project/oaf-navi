@@ -22,17 +22,44 @@ yarn add oaf-navi
 npm install oaf-navi
 ```
 
-## Usage
+## Basic Usage
 
-```typescript
+```diff
+import register from "navi-scripts/register";
 import routes from "./routes";
 import { createBrowserNavigation } from "navi";
-import { createBrowserHistory } from "history";
-import { wrapNavigation } from "oaf-navi";
++ import { createBrowserHistory } from "history";
++ import { wrapNavigation } from "oaf-navi";
+
+register({
+  ...
+  async main() {
+-    const navigation = createBrowserNavigation({ routes });
++    const history = createBrowserHistory();
++    const navigation = createBrowserNavigation({ routes, history });
++    await wrapNavigation(history, navigation);
+    ...
+  }
+});
+```
+
+## Advanced Usage
+
+```typescript
+const settings = {
+  announcementsDivId: "announcements",
+  primaryFocusTarget: "main h1, [role=main] h1",
+  documentTitle: (route: Route) => new Promise(resolve => setTimeout(() => resolve(document.title))),
+  // BYO localization
+  navigationMessage: (title: string, route: Route, action: Action): string => `Navigated to ${title}.`,
+  shouldHandleAction: (previousRoute: Route, nextRoute: Route, action: Action) => true,
+  disableAutoScrollRestoration: true,
+  announcePageNavigation: true,
+  setPageTitle: false,
+};
 
 const history = createBrowserHistory();
 const navigation = createBrowserNavigation({ routes, history });
 await wrapNavigation(history, navigation);
-
 ...
 ```
