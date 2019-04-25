@@ -74,6 +74,26 @@ await wrapNavigation(history, navigation);
 ...
 ```
 
+### A note on focus outlines
+You may see focus outlines around your `h1` elements (or elsewhere, per `primaryFocusTarget`) when using Oaf Navi.
+
+You might be tempted to remove these focus outlines with something like the following:
+```css
+[tabindex="-1"]:focus {
+  outline: 0 !important;
+}
+```
+
+Don't do this! Focus outlines are important for accessibility. See for example:
+
+* https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-visible.html
+* https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/F78
+* http://www.outlinenone.com/
+
+Note that [Bootstrap 4 unfortunately removes these focus outlines](https://github.com/twbs/bootstrap/issues/28425). If you use Bootstrap, you can restore them with [Oaf Bootstrap 4](https://github.com/oaf-project/oaf-bootstrap-4).
+
+All that said, if you absolutely _must_ remove focus outlines (stubborn client, stubborn boss, stubborn designer, whatever), consider using the [`:focus-visible` polyfill](https://github.com/WICG/focus-visible) so focus outlines are only hidden from mouse users, _not_ keyboard users.
+
 ## See also
 * [Oaf Routing](https://github.com/oaf-project/oaf-routing)
 * [Oaf Side Effects](https://github.com/oaf-project/oaf-side-effects)
