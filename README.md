@@ -59,6 +59,9 @@ register({
 const settings = {
   announcementsDivId: "announcements",
   primaryFocusTarget: "main h1, [role=main] h1",
+  // This assumes you're setting the document title via some other means (e.g. React Helmet).
+  // If you're not, you should return a unique and descriptive page title for each page
+  // from this function and set `setPageTitle` to true.
   documentTitle: (route: Route) => new Promise(resolve => setTimeout(() => resolve(document.title))),
   // BYO localization
   navigationMessage: (title: string, route: Route, action: Action): string => `Navigated to ${title}.`,
