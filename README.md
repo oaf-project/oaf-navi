@@ -12,6 +12,16 @@ An accessible wrapper for [Navi](https://github.com/frontarm/navi)'s router.
 
 Documentation at https://oaf-project.github.io/oaf-navi/
 
+## Features
+
+* Reset scroll and focus after PUSH and REPLACE navigation
+* Restore scroll and focus after POP navigation
+* Set the page title after navigation
+* Announce navigation to users of screen readers
+* Hash fragment support
+
+In lieu of more details, see [Oaf React Router](https://github.com/oaf-project/oaf-react-router/blob/master/README.md#features) for now. The features are basically the same.
+
 ## Installation
 
 ```sh
@@ -63,3 +73,7 @@ const navigation = createBrowserNavigation({ routes, history });
 await wrapNavigation(history, navigation);
 ...
 ```
+
+## See also
+* [Oaf Routing](https://github.com/oaf-project/oaf-routing)
+* [Oaf Side Effects](https://github.com/oaf-project/oaf-side-effects)
