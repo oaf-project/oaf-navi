@@ -9,7 +9,6 @@
   },
   "devDependencies": {
     "@types/history": "^4.7.2",
-    "history": "^4.9.0",
     "navi": "^0.12.6",
     "prettier": "^1.17.0",
     "prettylint": "^1.0.0",
@@ -22,8 +21,7 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "oaf-routing": "^0.3.0",
-    "oaf-side-effects": "^0.8.0"
+    "oaf-routing": "^0.5.0"
   },
   "peerDependencies": {
     "history": "^4.9.0",
