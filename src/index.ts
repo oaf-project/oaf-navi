@@ -1,4 +1,4 @@
-import { History, Location, LocationKey, LocationState } from "history";
+import { History, LocationState } from "history";
 import { Navigation, Route } from "navi";
 import {
   createOafRouter,
@@ -12,13 +12,7 @@ export { RouterSettings } from "oaf-routing";
 
 export const defaultSettings = {
   ...oafRoutingDefaultSettings,
-  // TODO
 };
-
-// HACK we need a way to track where focus and scroll were left on the first loaded page
-// but we won't have an entry in history for this initial page, so we just make up a key.
-const keyFromLocation = (location: Location): LocationKey =>
-  location.key !== undefined ? location.key : "initial";
 
 export const wrapNavigation = async <
   HistoryLocationState = LocationState,
@@ -50,7 +44,7 @@ export const wrapNavigation = async <
     oafRouter.handleLocationChanged(
       previousRoute,
       route,
-      keyFromLocation(history.location),
+      history.location.key,
       history.action,
     );
     previousRoute = route;
@@ -58,8 +52,8 @@ export const wrapNavigation = async <
 
   const unblock = history.block((location, action) => {
     oafRouter.handleLocationWillChange(
-      keyFromLocation(history.location),
-      keyFromLocation(location),
+      history.location.key,
+      location.key,
       action,
     );
   });
