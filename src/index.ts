@@ -1,4 +1,4 @@
-import { History, LocationState } from "history";
+import { History } from "history";
 import { Navigation, Route } from "navi";
 import {
   createOafRouter,
@@ -10,29 +10,29 @@ import {
 
 export { RouterSettings } from "oaf-routing";
 
-export const defaultSettings = {
+export const defaultSettings: RouterSettings<Route<unknown>> = {
   ...oafRoutingDefaultSettings,
+  documentTitle: route =>
+    route.title !== undefined && route.title.trim() !== ""
+      ? Promise.resolve(route.title)
+      : oafRoutingDefaultSettings.documentTitle(route),
 };
 
 export const wrapNavigation = async <
-  HistoryLocationState = LocationState,
-  Data = any,
+  LocationState = unknown,
+  Data = unknown,
   Context extends object = any
 >(
-  history: History<HistoryLocationState>,
+  history: History<LocationState>,
   navigation: Navigation<Context>,
   settingsOverrides?: Partial<RouterSettings<Route<Data>>>,
 ): Promise<() => void> => {
-  const settings = {
+  const settings: RouterSettings<Route<Data>> = {
     ...defaultSettings,
     ...settingsOverrides,
   };
 
-  const oafRouter = createOafRouter(
-    settings,
-    // TODO get hash from the route param
-    () => history.location.hash,
-  );
+  const oafRouter = createOafRouter(settings, route => route.url.hash);
 
   const initialRoute = await navigation.getRoute();
   oafRouter.handleFirstPageLoad(initialRoute);
@@ -40,7 +40,7 @@ export const wrapNavigation = async <
   // tslint:disable-next-line: no-let
   let previousRoute = initialRoute;
 
-  const subscription = navigation.subscribe(async route => {
+  const subscription = navigation.subscribe(route => {
     oafRouter.handleLocationChanged(
       previousRoute,
       route,
