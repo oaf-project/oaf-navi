@@ -45,7 +45,7 @@ register({
   ...
   async main() {
 -    const navigation = createBrowserNavigation({ routes });
-+    const history = createBrowserHistory();
++    const history = createBrowserHistory(); // or createHashHistory()
 +    const navigation = createBrowserNavigation({ routes, history });
 +    await wrapNavigation(history, navigation);
     ...
@@ -69,6 +69,9 @@ const settings = {
   disableAutoScrollRestoration: true,
   announcePageNavigation: true,
   setPageTitle: false,
+  handleHashFragment: true,
+  // Set this to false if you are using createHashHistory or createMemoryHistory.
+  restorePageStateOnPop: true,
 };
 
 const history = createBrowserHistory();
