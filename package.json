@@ -1,6 +1,6 @@
 {
   "name": "oaf-navi",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "dist",
   "license": "MIT",
   "repository": {
@@ -30,11 +30,11 @@
   "scripts": {
     "build": "tsc",
     "lint": "tslint -p tsconfig.json -c tslint.json",
-    "type-coverage": "type-coverage --at-least 99",
+    "type-coverage": "type-coverage --at-least 98",
     "format": "prettier --write '{src,test}/**/*.{ts,tsx}'",
     "format-lint": "prettylint '{src,test}/**/*.{ts,tsx}'",
     "documentation": "typedoc --excludeNotExported --excludePrivate --out docs src && cp docs_config.yml ./docs/_config.yml",
-    "publish": "yarn build && yarn lint && yarn type-coverage && yarn format-lint && yarn publish"
+    "release": "yarn build && yarn lint && yarn type-coverage && yarn format-lint && yarn publish && yarn documentation"
   },
   "prettier": {
     "trailingComma": "all"
