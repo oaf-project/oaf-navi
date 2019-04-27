@@ -74,6 +74,12 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_index_.html#wrapnavigation" class="tsd-kind-icon">wrap<wbr>Navigation</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section ">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal tsd-parent-kind-external-module"><a href="_index_.html#defaultsettings" class="tsd-kind-icon">default<wbr>Settings</a></li>
+							</ul>
+						</section>
 					</div>
 				</section>
 			</section>
@@ -83,13 +89,13 @@
 					<a name="wrapnavigation" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> wrap<wbr>Navigation</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">wrap<wbr>Navigation&lt;HistoryLocationState, Data, Context&gt;<span class="tsd-signature-symbol">(</span>history<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">History</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">HistoryLocationState</span><span class="tsd-signature-symbol">&gt;</span>, navigation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Navigation</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Context</span><span class="tsd-signature-symbol">&gt;</span>, settingsOverrides<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RouterSettings</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Route</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Data</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Action</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UnregisterCallback</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">wrap<wbr>Navigation&lt;HistoryLocationState, Data, Context&gt;<span class="tsd-signature-symbol">(</span>history<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">History</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">HistoryLocationState</span><span class="tsd-signature-symbol">&gt;</span>, navigation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Navigation</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Context</span><span class="tsd-signature-symbol">&gt;</span>, settingsOverrides<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RouterSettings</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Route</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Data</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/oaf-project/oaf-navi/blob/9f663fb/src/index.ts#L33">index.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/oaf-project/oaf-navi/blob/5d2eb94/src/index.ts#L23">index.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -113,12 +119,25 @@
 									<h5>navigation: <span class="tsd-signature-type">Navigation</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Context</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> settingsOverrides: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RouterSettings</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Route</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Data</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Action</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> settingsOverrides: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RouterSettings</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Route</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Data</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">UnregisterCallback</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-external-module">
+					<a name="defaultsettings" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> default<wbr>Settings</h3>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Settings<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/oaf-project/oaf-navi/blob/5d2eb94/src/index.ts#L13">index.ts:13</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -137,6 +156,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="_index_.html#wrapnavigation" class="tsd-kind-icon">wrap<wbr>Navigation</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module">
+						<a href="_index_.html#defaultsettings" class="tsd-kind-icon">default<wbr>Settings</a>
 					</li>
 				</ul>
 			</nav>
