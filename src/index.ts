@@ -7,6 +7,7 @@ import {
 } from "oaf-routing";
 
 // tslint:disable: no-expression-statement
+// tslint:disable: no-if-statement
 
 export { RouterSettings } from "oaf-routing";
 
@@ -41,13 +42,15 @@ export const wrapNavigation = async <
   let previousRoute = initialRoute;
 
   const subscription = navigation.subscribe(route => {
-    oafRouter.handleLocationChanged(
-      previousRoute,
-      route,
-      history.location.key,
-      history.action,
-    );
-    previousRoute = route;
+    if (route.type === "ready") {
+      oafRouter.handleLocationChanged(
+        previousRoute,
+        route,
+        history.location.key,
+        history.action,
+      );
+      previousRoute = route;
+    }
   });
 
   const unblock = history.block((location, action) => {
