@@ -98,7 +98,7 @@ register({
   ...
   async main() {
 <span class="hljs-deletion">-    const navigation = createBrowserNavigation({ routes });</span>
-<span class="hljs-addition">+    const history = createBrowserHistory();</span>
+<span class="hljs-addition">+    const history = createBrowserHistory(); // or createHashHistory()</span>
 <span class="hljs-addition">+    const navigation = createBrowserNavigation({ routes, history });</span>
 <span class="hljs-addition">+    await wrapNavigation(history, navigation);</span>
     ...
@@ -118,6 +118,9 @@ register({
   disableAutoScrollRestoration: <span class="hljs-literal">true</span>,
   announcePageNavigation: <span class="hljs-literal">true</span>,
   setPageTitle: <span class="hljs-literal">false</span>,
+  handleHashFragment: <span class="hljs-literal">true</span>,
+  <span class="hljs-comment">// Set this to false if you are using createHashHistory or createMemoryHistory.</span>
+  restorePageStateOnPop: <span class="hljs-literal">true</span>,
 };
 
 <span class="hljs-keyword">const</span> history = createBrowserHistory();
