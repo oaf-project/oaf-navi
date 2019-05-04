@@ -42,7 +42,7 @@ export const wrapNavigation = async <
   let previousRoute = initialRoute;
 
   const subscription = navigation.subscribe(route => {
-    if (route.type === "ready") {
+    if (route.type === "ready" || route.type === "error") {
       oafRouter.handleLocationChanged(
         previousRoute,
         route,
