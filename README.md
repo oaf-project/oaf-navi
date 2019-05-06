@@ -72,6 +72,9 @@ const settings = {
   handleHashFragment: true,
   // Set this to false if you are using createHashHistory or createMemoryHistory.
   restorePageStateOnPop: true,
+  // Set this to true for smooth scrolling.
+  // For browser compatibility you might want iamdustan's smoothscroll polyfill https://github.com/iamdustan/smoothscroll
+  smoothScroll: false,
 };
 
 const history = createBrowserHistory();
