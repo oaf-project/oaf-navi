@@ -8,7 +8,7 @@
 [![peerDependencies Status](https://david-dm.org/oaf-project/oaf-navi/peer-status.svg)](https://david-dm.org/oaf-project/oaf-navi?type=peer)
 
 # Oaf Navi
-An accessible wrapper for [Navi](https://github.com/frontarm/navi)'s router.
+An accessible wrapper for [Navi](https://github.com/frontarm/navi).
 
 Documentation at https://oaf-project.github.io/oaf-navi/
 
