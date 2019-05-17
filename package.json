@@ -10,7 +10,7 @@
   "devDependencies": {
     "@types/history": "^4.7.2",
     "navi": "^0.12.6",
-    "prettier": "^1.17.0",
+    "prettier": "^1.17.1",
     "prettylint": "^1.0.0",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
@@ -21,7 +21,7 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "oaf-routing": "^1.0.4"
+    "oaf-routing": "^1.1.0"
   },
   "peerDependencies": {
     "history": "^4.9.0",
