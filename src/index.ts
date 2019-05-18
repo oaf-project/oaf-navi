@@ -15,7 +15,7 @@ export const defaultSettings: RouterSettings<Route<unknown>> = {
   ...oafRoutingDefaultSettings,
   documentTitle: route =>
     route.title !== undefined && route.title.trim() !== ""
-      ? Promise.resolve(route.title)
+      ? route.title
       : oafRoutingDefaultSettings.documentTitle(route),
 };
 
@@ -36,19 +36,25 @@ export const wrapNavigation = async <
   const oafRouter = createOafRouter(settings, route => route.url.hash);
 
   const initialRoute = await navigation.getRoute();
-  oafRouter.handleFirstPageLoad(initialRoute);
+
+  // Wait for the DOM to be ready before repairing focus.
+  navigation.steady().then(() => oafRouter.handleFirstPageLoad(initialRoute));
 
   // tslint:disable-next-line: no-let
   let previousRoute = initialRoute;
 
-  const subscription = navigation.subscribe(route => {
+  const subscription = navigation.subscribe(async route => {
     if (route.type === "ready" || route.type === "error") {
+      // Wait for the DOM to be ready before repairing focus.
+      await navigation.steady();
+
       oafRouter.handleLocationChanged(
         previousRoute,
         route,
         history.location.key,
         history.action,
       );
+
       previousRoute = route;
     }
   });
