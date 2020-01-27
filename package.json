@@ -8,7 +8,7 @@
     "url": "https://github.com/oaf-project/oaf-navi.git"
   },
   "devDependencies": {
-    "@types/history": "^4.7.2",
+    "@types/history": "^4.7.4",
     "navi": "^0.12.6",
     "prettier": "^1.17.1",
     "prettylint": "^1.0.0",
