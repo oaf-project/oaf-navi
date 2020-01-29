@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@types/history": "^4.7.4",
-    "navi": "^0.12.6",
+    "navi": "^0.14.0",
     "prettier": "^1.19.1",
     "prettylint": "^1.0.0",
     "tslint": "^5.20.1",
@@ -25,7 +25,7 @@
   },
   "peerDependencies": {
     "history": "^4.9.0",
-    "navi": "^0.12.6"
+    "navi": "^0.14.0"
   },
   "scripts": {
     "build": "tsc",
