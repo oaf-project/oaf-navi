@@ -43,23 +43,23 @@ describe("oaf-vue-router", () => {
   });
 
   // TODO
-  // test("respects Navi title if it exists", async () => {
-  //   const history = createBrowserHistory();
-  //   const routes = mount({"/": route({ title: "navi title"})});
-  //   const navigation = createBrowserNavigation({ routes, history });
-  //   const unwrap = await wrapNavigation(history, navigation, {
-  //     setPageTitle: true,
-  //     documentTitle: () => "oaf title",
-  //   });
+  xtest("respects Navi title if it exists", async () => {
+    const history = createBrowserHistory();
+    const routes = mount({"/": route({ title: "navi title"})});
+    const navigation = createBrowserNavigation({ routes, history });
+    const unwrap = await wrapNavigation(history, navigation, {
+      setPageTitle: true,
+      documentTitle: () => "oaf title",
+    });
 
-  //   expect(document.title).toBe("");
+    expect(document.title).toBe("");
 
-  //   await waitForDomUpdate();
+    await waitForDomUpdate();
 
-  //   expect(document.title).toBe("navi title");
+    expect(document.title).toBe("navi title");
 
-  //   unwrap();
-  // });
+    unwrap();
+  });
 
   test("sets the document title after a navigation", async () => {
     const history = createBrowserHistory();
