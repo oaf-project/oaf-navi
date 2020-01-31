@@ -27,8 +27,8 @@
     "oaf-routing": "^4.0.0"
   },
   "peerDependencies": {
-    "history": "^4.9.0",
-    "navi": "^0.12.6"
+    "history": "^4.10.1",
+    "navi": "^0.14.0"
   },
   "scripts": {
     "build": "tsc",
