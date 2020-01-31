@@ -43,7 +43,9 @@ export const wrapNavigation = async <
   const initialRoute = await navigation.getRoute();
 
   // Wait for the DOM to be ready before repairing focus.
-  navigation.steady().then(() => oafRouter.handleFirstPageLoad(initialRoute));
+  setTimeout(() => {
+    oafRouter.handleFirstPageLoad(initialRoute);
+  }, settings.renderTimeout);
 
   // tslint:disable-next-line: no-let
   let previousRoute = initialRoute;
@@ -51,7 +53,7 @@ export const wrapNavigation = async <
   const subscription = navigation.subscribe(async route => {
     if (route.type === "ready" || route.type === "error") {
       // Wait for the DOM to be ready before repairing focus.
-      await navigation.steady();
+      await navigation.getRoute();
 
       oafRouter.handleLocationChanged(
         previousRoute,
