@@ -45,7 +45,7 @@ describe("oaf-vue-router", () => {
   // TODO
   xtest("respects Navi title if it exists", async () => {
     const history = createBrowserHistory();
-    const routes = mount({"/": route({ title: "navi title"})});
+    const routes = mount({ "/": route({ title: "navi title" }) });
     const navigation = createBrowserNavigation({ routes, history });
     const unwrap = await wrapNavigation(history, navigation, {
       setPageTitle: true,
