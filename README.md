@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/oaf-project/oaf-navi.svg?branch=master)](https://travis-ci.org/oaf-project/oaf-navi)
 [![Known Vulnerabilities](https://snyk.io/test/github/oaf-project/oaf-navi/badge.svg?targetFile=package.json)](https://snyk.io/test/github/oaf-project/oaf-navi?targetFile=package.json)
-[![Greenkeeper badge](https://badges.greenkeeper.io/oaf-project/oaf-navi.svg)](https://greenkeeper.io/)
 [![npm](https://img.shields.io/npm/v/oaf-navi.svg)](https://www.npmjs.com/package/oaf-navi)
 
 [![dependencies Status](https://david-dm.org/oaf-project/oaf-navi/status.svg)](https://david-dm.org/oaf-project/oaf-navi)
