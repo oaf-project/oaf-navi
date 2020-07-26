@@ -1,4 +1,7 @@
-// tslint:disable:no-expression-statement no-object-mutation no-duplicate-string no-empty
+/* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable functional/immutable-data */
+/* eslint-disable functional/no-expression-statement */
+/* eslint-disable functional/functional-parameters */
 
 import { mount, route, createBrowserNavigation } from "navi";
 import { createBrowserHistory } from "history";
@@ -6,7 +9,7 @@ import { wrapNavigation } from ".";
 
 // HACK: wait for router wrapper to update DOM.
 const waitForDomUpdate = (): Promise<void> =>
-  new Promise(resolve => setTimeout(resolve));
+  new Promise((resolve) => setTimeout(resolve));
 
 beforeEach(() => {
   // Clear previous test's DOM.
@@ -43,6 +46,7 @@ describe("oaf-vue-router", () => {
   });
 
   // TODO
+  // eslint-disable-next-line jest/no-test-prefixes
   xtest("respects Navi title if it exists", async () => {
     const history = createBrowserHistory();
     const routes = mount({ "/": route({ title: "navi title" }) });
@@ -136,6 +140,7 @@ describe("oaf-vue-router", () => {
 
     const main = document.createElement("main");
     const mainH1 = document.createElement("h1");
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     mainH1.focus = () => {};
     main.append(mainH1);
     const randomButton = document.createElement("button");

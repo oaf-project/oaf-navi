@@ -1,3 +1,7 @@
+/* eslint-disable functional/no-return-void */
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable functional/functional-parameters */
+/* eslint-disable functional/no-expression-statement */
 import { History, LocationKey } from "history";
 import { Navigation, Route } from "navi";
 import {
@@ -6,14 +10,11 @@ import {
   RouterSettings,
 } from "oaf-routing";
 
-// tslint:disable: no-expression-statement
-// tslint:disable: no-if-statement
-
 export { RouterSettings } from "oaf-routing";
 
 export const defaultSettings: RouterSettings<Route<unknown>> = {
   ...oafRoutingDefaultSettings,
-  documentTitle: route =>
+  documentTitle: (route) =>
     route.title !== undefined && route.title.trim() !== ""
       ? route.title
       : oafRoutingDefaultSettings.documentTitle(route),
@@ -27,6 +28,7 @@ const orInitialKey = (key: LocationKey | undefined): LocationKey =>
 export const wrapNavigation = async <
   LocationState = unknown,
   Data = unknown,
+  // eslint-disable-next-line @typescript-eslint/ban-types
   Context extends object = any
 >(
   history: History<LocationState>,
@@ -38,7 +40,7 @@ export const wrapNavigation = async <
     ...settingsOverrides,
   };
 
-  const oafRouter = createOafRouter(settings, route => route.url.hash);
+  const oafRouter = createOafRouter(settings, (route) => route.url.hash);
 
   const initialRoute = await navigation.getRoute();
 
@@ -47,10 +49,12 @@ export const wrapNavigation = async <
     oafRouter.handleFirstPageLoad(initialRoute);
   }, settings.renderTimeout);
 
-  // tslint:disable-next-line: no-let
+  // eslint-disable-next-line functional/no-let
   let previousRoute = initialRoute;
 
-  const subscription = navigation.subscribe(async route => {
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
+  const subscription = navigation.subscribe(async (route) => {
+    // eslint-disable-next-line functional/no-conditional-statement
     if (route.type === "ready" || route.type === "error") {
       // Wait for the DOM to be ready before repairing focus.
       await navigation.getRoute();
